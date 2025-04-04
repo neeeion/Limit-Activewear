@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monthly Drop Co.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">Monthly Drop Co.</div>
+    <nav>
+      <a href="#drop">Drop</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#archive">Archive</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section class="hero fade-in">
+    <h1>April Drop</h1>
+    <p>Available for a limited time only. Once it's gone, it's gone.</p>
+    <div id="countdown"></div>
+  </section>
+
+  <section id="drop" class="fade-in">
+    <h2>Featured Product</h2>
+    <img src="https://via.placeholder.com/600x400" alt="Product Image" />
+    <p class="description">Minimalist Techwear Hoodie. Drop ends April 30.</p>
+    <button class="buy-btn">Sold Out</button>
+  </section>
+
+  <section id="calendar" class="fade-in">
+    <h2>Upcoming Drops</h2>
+    <ul>
+      <li>May 1 — Utility Crossbody</li>
+      <li>June 1 — Limited Bucket Hat</li>
+    </ul>
+  </section>
+
+  <section id="archive" class="fade-in">
+    <h2>Past Drops</h2>
+    <ul>
+      <li>March 2025 — Thermal Pocket Tee (Sold Out)</li>
+      <li>February 2025 — Oversized Puffer (Sold Out)</li>
+    </ul>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2>About</h2>
+    <p>We release one exclusive drop every month. No restocks. No fluff. Just clean, limited pieces made to be remembered.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Monthly Drop Co.</p>
+  </footer>
+
+  <script>
+    const dropDate = new Date("2025-05-01T12:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = dropDate - now;
+
+      if (distance <= 0) {
+        countdown.innerHTML = "Drop is live!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      countdown.innerHTML = `Drop in: ${days}d ${hours}h ${mins}m`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
